@@ -31,7 +31,7 @@ export const getOrderByUser = async (): Promise<OrderByUser> => {
   try {
     const orders = await prisma.order.findMany({
       where: {
-        userId: session.user.id,
+        userId: session.user?.id,
       },
       include: {
         OrderAddress: {

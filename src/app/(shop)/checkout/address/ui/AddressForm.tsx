@@ -60,10 +60,10 @@ export function AddressForm({ countries, userStoredAddress = {} }: AddressProps)
 
     if (rememberAddress) {
       // Server action: Save in database
-      await setUserAddress(rest, session!.user.id ?? '');
+      await setUserAddress(rest, session?.user?.id ?? '');
     } else {
       // Server action: Delete from database
-      await deleteUserAddress(session!.user.id ?? '');
+      await deleteUserAddress(session?.user?.id ?? '');
     }
     router.push('/checkout');
   };

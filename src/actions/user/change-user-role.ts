@@ -13,7 +13,7 @@ interface ChangeUserRole {
 export const changeUserRole = async (userId: string, role: string): Promise<ChangeUserRole> => {
   const session = await auth();
 
-  if (session?.user.role !== 'ADMIN') {
+  if (session?.user?.role !== 'ADMIN') {
     return {
       status: false,
       message: 'Must be logged in as admin to view this page',

@@ -30,7 +30,7 @@ export const getPaginatedUsers = async ({
 }: PaginationOptions): Promise<OrderUser | null> => {
   const session = await auth();
 
-  if (session?.user.role !== 'ADMIN') {
+  if (session?.user?.role !== 'ADMIN') {
     return {
       ...initialUser,
       message: 'Must be logged in as admin to view this page',

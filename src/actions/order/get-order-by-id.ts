@@ -22,6 +22,13 @@ const inititalOrder: OrderProps = {
 export const getOrderById = async (id: string): Promise<OrderProps> => {
   const session = await auth();
 
+  if (!session) {
+    return {
+      ...inititalOrder,
+      message: 'You must be logged in to view this order',
+    };
+  }
+
   try {
     const order = await prisma.order.findUnique({
       where: {
@@ -49,7 +56,7 @@ export const getOrderById = async (id: string): Promise<OrderProps> => {
       throw new Error(`Order ${id.split('-').at(-1)} not found`);
     }
 
-    if (session?.user.role === 'USER' && session.user.id !== order.userId) {
+    if (session.user?.role === 'USER' && session.user?.id !== order.userId) {
       throw new Error('You are not authorized to view this order');
     }
 

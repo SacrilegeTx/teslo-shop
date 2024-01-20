@@ -8,6 +8,6 @@ declare module 'next-auth' {
     image?: string;
   }
   interface Session extends DefaultSession {
-    user: User & DefaultSession['user'];
+    user?: User & DefaultSession['user'];
   }
 }
