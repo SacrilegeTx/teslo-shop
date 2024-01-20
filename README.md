@@ -1,15 +1,12 @@
-## Getting Started with teslo-shop
+# Descripción
 
-First, run the development server:
+## Correr en dev
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clonar el repositorio.
+2. Crear una copia del ```.env.template``` y renombrarlo a ```.env``` y cambiar las variables de entorno.
+3. Instalar dependencias ```npm install```
+4. Levantar la base de datos ```docker compose up -d```
+5. Correr las migraciones de Primsa ```npx prisma migrate dev```
+6. Ejecutar seed ```npm run seed```
+7. Correr el proyecto ```npm run dev```
+8. Limpiar el localStorage del navegador.
