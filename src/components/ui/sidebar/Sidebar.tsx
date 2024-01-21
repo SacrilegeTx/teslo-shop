@@ -24,6 +24,9 @@ export function Sidebar(): ReactElement {
   const isAuthenticated = !!session?.user;
   const isAdmin = session?.user?.role === 'ADMIN';
 
+  // eslint-disable-next-line no-console
+  console.log({ session });
+
   return (
     <div>
       {/* Background black */}

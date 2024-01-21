@@ -10,6 +10,9 @@ export default async function AddressPage() {
   const countries = await getCounties();
   const session = await auth();
 
+  // eslint-disable-next-line no-console
+  console.log({ session });
+
   if (!session?.user) {
     redirect('/auth/login');
   }
