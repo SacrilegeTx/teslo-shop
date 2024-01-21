@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 import { Title } from '@/components';
 import { getCounties, getUserAddress } from '@/actions';
 import { auth } from '@/auth.config';
@@ -9,7 +11,7 @@ export default async function AddressPage() {
   const session = await auth();
 
   if (!session?.user) {
-    return <h3 className="text-5xl">No existe sesión de usuario...</h3>;
+    redirect('/auth/login');
   }
 
   const userAddress = (await getUserAddress(session.user.id ?? '')) ?? undefined;
