@@ -40,8 +40,11 @@ export const authConfig: NextAuthConfig = {
       return token;
     },
     async session({ session, token }: { session: Session; token?: JWT }) {
-      // if (!token) return session;
+      if (!token) return session;
       session.user = token!.data as IUser & JWT['data'];
+
+      // eslint-disable-next-line no-console
+      console.log({ session });
 
       return session;
     },
